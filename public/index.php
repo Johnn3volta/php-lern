@@ -1,3 +1,2 @@
 <?php
 include '../app.php';
-?>

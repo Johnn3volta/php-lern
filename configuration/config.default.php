@@ -20,4 +20,4 @@ $config['path_templates'] = $config['path_root'] . '/../templates';
 $config['path_logs'] = $config['path_root'] . '/../logs';
 
 $config['sitename'] = 'Интернет-магазин | ';
-$config['domain'] = 'http://gu/';
+$config['domain'] = 'http://php-lern/';

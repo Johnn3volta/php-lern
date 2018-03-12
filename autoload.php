@@ -24,7 +24,7 @@ function gbStandardAutoload($className)
         }
     }
     if (!$found) {
-		header('Location: http://gu/page404/');
+		header("Location: Config::get('domain')/page404/");
 //        throw new Exception('Нет файла класса для загрузки: ' . $className . $fileName);	//Если файл с классом не найдет, то выводим сообщение
     }
     return true;
