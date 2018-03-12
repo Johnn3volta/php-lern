@@ -16,8 +16,16 @@ class catalogModel extends Model{
         $this->title .=  'Товары';
     }
 
-    public function index($data){
-        $result['catalog'] = db::getInstance()->Select("SELECT * FROM WHERE parent_id = '0'");
+    public function index(){
+        $result['catalog'] = db::getInstance()->Select("SELECT * FROM categories WHERE parent_id = '0'");
+        foreach ($result['catalog'] as $key=>$value){
+
+        $result['catalog'][$key]['sub_category'] = db::getInstance()->Select("SELECT * FROM categories WHERE parent_id = '".$value['id_category']."'");
+        }
+//        echo "<pre>";
+//        print_r($result['catalog']);
+//        echo "</pre>";
+
         return $result;
     }
 
