@@ -8,6 +8,8 @@ require_once 'autoload.php'; //подключаем файл с методами
 
 
 
+print_r($_GET);
+
 try{
     App::init();	//Запускаем статический метод init класса App. В соответствии с внутренними правилами имен находится в файле app.class.php
 }
@@ -18,4 +20,6 @@ catch (PDOException $e){
 catch (Exception $e){
     echo $e->getMessage();
 }
+
+
 

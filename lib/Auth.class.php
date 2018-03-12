@@ -8,6 +8,36 @@
 
 class Auth{
 
+    public function auth($login = null, $pass = null, $rememberme = false){
+        $isAuth = 0;
+
+        if($rememberme == "true"){
+            $rememberme = true;
+        }else{
+            $rememberme = false;
+        }
+
+        if(!empty($login)){
+            $isAuth = self::authWithCredential($login,$pass,$rememberme);
+        }elseif($_SESSION['IdUserSession']){
+            $isAuth = self::checkAuthWithSession($_SESSION['IdUserSession']);
+        }else{
+            $isAuth = self::checkAuthWithCookie();
+        }
+
+        if(isset($_POST['Exitlogin'])){
+            $isAuth = self::UserExit();
+        }
+
+        if($isAuth){
+            $id_user = $_SESSION['IdUserSession'];
+            $sql = "select * from users where id_user = (select id_user from users_auth where hash_cookie = '$id_user')";
+            $isAuth = db::getInstance()->Select($sql);
+        }
+
+        return $isAuth;
+    }
+
 
     protected static function UserExit(){
         $IdUserSession = $_SESSION['IdUserSession'];

@@ -9,9 +9,7 @@
         <!-- Меню -->
 		{% include 'menu.html' %}
         
-        <div class="open">
-            <p>now<br>is<br>open!</p>
-        </div>
+
         
     </div>
         

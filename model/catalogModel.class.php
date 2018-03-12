@@ -29,7 +29,13 @@ class catalogModel extends Model{
         return $result;
     }
 
-    public function sub_catalog($data){
+    public function sub_catalog(){
+        $pth = explode('/',$_GET['path']);
+        $result['sub_product']['name'] = $pth[2];
+        $sql = "select * from goods where id_category = (select id_category from categories where url_category ='$pth[2]')";
+        $sub_products = db::getInstance()->Select($sql);
+        $result['sub_products'] = $sub_products;
+
         return $result;
     }
 

@@ -65,7 +65,11 @@ class App {
 
         $loader = new Twig_Loader_Filesystem(Config::get('path_templates'));
 
-        $twig = new Twig_Environment($loader);
+        $twig = new Twig_Environment($loader,[
+            'debug' => true
+        ]);
+
+        $twig->addExtension(new Twig_Extension_Debug());
 
         $template = $twig->loadTemplate($view);
 

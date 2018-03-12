@@ -9,10 +9,6 @@
     <!-- Меню -->
     {% include 'menu.html' %}
 
-    <div class="open">
-      <p>now<br>is<br>open!</p>
-    </div>
-
   </div>
 
   <!-- Правый блок -->
@@ -36,6 +32,10 @@
       </div>
     </div>
     {% endfor %}
+
+<!--    <pre>-->
+<!--      {{ dump(POST) }}-->
+<!--    </pre>-->
 
   </div>
     <!-- Нижняя часть главного блока -->
